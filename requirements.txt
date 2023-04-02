@@ -1,0 +1,6 @@
+1 - O programa deve receber uma lista de nomes arquivos 
+2 - Receber o diretório onde estes arqquivos se encontram
+3 - Receber o diretório onde estes arquivos serão alocados
+4 - Fazer a cópia de todos os arquivos
+5 - Exibir uma mensagem de sucesso com a quantidade de arquivos copiados
+6 - Exibir uma mensagem com a quantidade de arquivos não copiados
