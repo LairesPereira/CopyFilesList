@@ -1,21 +1,21 @@
-const fs  = require('fs')
-const { resolve } = require('path')
-const getList = require('./getList')
-const getPaths = require('./getPaths')
+const fs  = import ('fs')
+import getInput  from "./getList.js";
+import  fileExtension  from "./getList.js";
+import getPaths from './getPaths.js'
 
 let originFolder
 let destinationFolder
 let filesToCopy
 
-// IMG_0326. ,IMG_0327. ,IMG_0330. ,IMG_0354. ,IMG_0359. ,IMG_0361. ,IMG_0386. ,IMG_0401.
-// /Users/dev/Documents/dev/de onde para onde/cp_test_files/origin
 
 async function letsCopyBaby(){
-    console.log(filesToCopy)
-    if(!filesToCopy) {
-        filesToCopy = await getList.getUsersList()
+    while(!filesToCopy) {
+        filesToCopy = await getInput.list().catch(e => console.log(e))
         console.log('Arquivos que serão procurados: ', filesToCopy) 
-    }
+    }    
+    
+    const format = await fileExtension.fileExtension()
+
     while(!originFolder){
         originFolder = await getPaths.getOriginAndDestinationPath().catch(err => console.log(err))
         console.log('origem retornada', originFolder)

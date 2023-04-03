@@ -1,7 +1,8 @@
-// uses readline to recieve users path input 
-const readLine = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
+import readlinePromises from 'node:readline/promises';
+const rl = readlinePromises.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: null
+});
 
-exports.readLine = readLine
+export default rl

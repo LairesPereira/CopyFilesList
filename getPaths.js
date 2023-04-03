@@ -1,6 +1,6 @@
-const { constants } = require('buffer')
-const fs = require('fs')
-const { readLine } = require('./readUserInput')
+const constants  = import('buffer')
+const fs = import('fs')
+import rl from './readUserInput.js'
 
 // /Users/dev/Downloads/XV Anos Kethlyn (Kelly) 
 // IMG_9246. ,IMG_9244. ,IMG_9249. ,IMG_9264. ,IMG_9272. ,IMG_9384. ,IMG_9394. ,IMG_9406. ,IMG_9417. ,IMG_9439. ,IMG_9448. ,IMG_9447. ,IMG_9453. ,IMG_9455. ,IMG_9461. ,IMG_9488. ,IMG_9506. ,IMG_9511. ,IMG_9522. ,IMG_9525. ,IMG_9535. ,IMG_9566. ,IMG_9609. ,IMG_9619. ,IMG_9625. ,IMG_9630. ,IMG_9629. ,IMG_9663. ,IMG_9669. ,IMG_9675. ,IMG_9683. ,IMG_9689. ,IMG_9693. ,IMG_9698. ,IMG_9700. ,IMG_9701. ,IMG_9711. ,IMG_9708. ,IMG_9716. ,IMG_9719. ,IMG_9724. ,IMG_9726. ,IMG_9735. ,IMG_9736. ,IMG_9741. ,IMG_9761. ,IMG_9758. ,IMG_9764. ,IMG_9770. ,IMG_9773. ,IMG_9776. ,IMG_9779. ,IMG_9795. ,IMG_9797. ,IMG_9805. ,IMG_9789. ,IMG_9824. ,IMG_9838. ,IMG_9844. ,IMG_9855. ,IMG_9853. ,IMG_9865. ,IMG_9871. ,IMG_9891. ,IMG_9959.
@@ -26,7 +26,7 @@ const getOriginAndDestinationPath = async function () {
     if(originPath.length == 0){
         // collectin orgin path.
         // and confirming if it exists.
-        readLine.question('Digite o caminho dos arquivos a serem copiados', pathInput => {
+        rl.question('Digite o caminho dos arquivos a serem copiados', pathInput => {
             fs.access(pathInput, constants.F_OK, (err) => {
                 if(err){ 
                     // handdle with nonexisting paths.
@@ -38,13 +38,13 @@ const getOriginAndDestinationPath = async function () {
                     console.log('O caminho de origem foi aceito!')
                     originPath = pathInput
                     resolve(originPath)
-                    // readLine.close()
+                    // rl.close()
                 }
             })
         });
     } else {
         // getting destination folder.
-        readLine.question('Digite o caminho de destino dos arquivos', pathInput => {
+        rl.question('Digite o caminho de destino dos arquivos', pathInput => {
             // Verify if the path does exist.
             fs.access(pathInput, constants.F_OK, (err) => {
                 if(err){ 
@@ -57,7 +57,7 @@ const getOriginAndDestinationPath = async function () {
                     destinationPath = pathInput
                     console.log('Closing the gates!')
                     console.log(originPath, destinationPath)
-                    readLine.close()
+                    rl.close()
                     resolve(destinationPath)
                 }
             })
@@ -66,4 +66,6 @@ const getOriginAndDestinationPath = async function () {
     })
 } 
 
-exports.getOriginAndDestinationPath = getOriginAndDestinationPath
+export default {
+    getOriginAndDestinationPath: getOriginAndDestinationPath
+}
