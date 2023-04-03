@@ -18,7 +18,6 @@ async function letsCopyBaby(){
 
     while(!originFolder){
         originFolder = await getPaths.getOriginAndDestinationPath().catch(err => console.log(err))
-        console.log('origem retornada', originFolder)
     }
     while(!destinationFolder){
         destinationFolder = await getPaths.getOriginAndDestinationPath().catch(err => console.log(err))
