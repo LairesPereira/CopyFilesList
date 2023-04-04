@@ -1,10 +1,14 @@
 import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import { stdin as input, stdout as output, stderr as stderr} from 'node:process';
 
-const rl = readline.createInterface({ input, output });
+console.log(input)
+const rl = readline.createInterface({ input, output, terminal: false });
 
-const answer = await rl.question('What do you think of Node.js? ');
+await rl.question('What do you think of Node.js? ', (answer) => {
+    console.log(answer)
+});
 
-console.log(`Thank you for your valuable feedback: ${answer}`);
 
-rl.close();
+
+
+// IMG_2026. , IMG_2027. ,IMG_2028. ,IMG_2029. ,IMG_2030. , IMG_2031

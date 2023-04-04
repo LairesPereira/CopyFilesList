@@ -17,10 +17,11 @@ async function letsCopyBaby(){
     const format = await fileExtension.fileExtension()
 
     while(!originFolder){
-        originFolder = await getPaths.getOriginAndDestinationPath().catch(err => console.log(err))
+        originFolder = await getPaths.getOriginPath().catch(err => console.log(err))
+        console.log(originFolder)
     }
     while(!destinationFolder){
-        destinationFolder = await getPaths.getOriginAndDestinationPath().catch(err => console.log(err))
+        destinationFolder = await getPaths.getDestinationPath().catch(err => console.log(err))
         console.log('destination retornado', destinationFolder)
     }
     console.log('Vamos copiar!', originFolder)
