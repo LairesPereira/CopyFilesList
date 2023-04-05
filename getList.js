@@ -1,15 +1,21 @@
-import rl from "./readUserInput.js";
+import * as readline from 'node:readline/promises';
+import process from 'node:process'
+
+const rl = readline.createInterface({ 
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
+});
 
 // Ask what files the user is looking for
 const getInput = async function () {
-    return new Promise ((resolve, reject) => {
-        console.log('What files are you looking for?')
-        rl.on('line', (list) => {
-            if(list != ''){
-                resolve(list.split(' '))
-            } reject('List cant be empty!')
-          });
-    });
+        const userListInput = await rl.question('What files are you looking for? \n')
+        if(userListInput != ' ') {
+            let filesToCopy = userListInput.split(' ')
+            console.log(filesToCopy)
+            console.log('Arquivos que serão procurados: \n', filesToCopy) 
+            return userListInput             
+        }
 } 
 
 const fileExtension = async function() {
