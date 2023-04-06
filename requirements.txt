@@ -1,0 +1,25 @@
+// implementacao v1
+
+1 - O programa deve receber uma lista de nomes arquivos 
+2 - Receber o diretório onde estes arqquivos se encontram
+3 - Receber o diretório onde estes arquivos serão alocados
+4 - Fazer a cópia de todos os arquivos
+5 - Exibir uma mensagem de sucesso com a quantidade de arquivos copiados
+6 - Exibir uma mensagem com a quantidade de arquivos não copiados
+
+// implementacao v2
+
+1 - Ao receber uma lista de arquivos o programa deve perguntar se o usuário
+deseja buscar os arquivos em qualquer formato ou em um formato especifico
+
+o programa deve tratar o path inserido para que não tenha erros
+
+2 - O programa deve perguntar se ele deseja salvar em um novo local ou salvar
+em uma subpasta no local atual
+
+3 - o programa deve listar os arquivos não encontrados antes de prosseguir
+se houverem arquivos nao encontrados o programa deve perguntar:
+-> prosseguir sem estes arquivos
+-> tentar novamente
+-> parar o programa
+
