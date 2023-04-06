@@ -14,7 +14,7 @@ const getInput = async function () {
             let filesToCopy = userListInput.split(' ')
             console.log(filesToCopy)
             console.log('Arquivos que serão procurados: \n', filesToCopy) 
-            return userListInput             
+            return filesToCopy          
         }
 } 
 
